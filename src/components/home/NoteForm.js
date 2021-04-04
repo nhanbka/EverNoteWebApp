@@ -15,11 +15,11 @@ const NoteForm = () => {
             <form action="">
                 <div className="input-field w-100">
                     <label htmlFor="note_title">Note Title</label>
-                    <input class="form-control" id="note_title" {...bindTitle} />
+                    <input className="form-control" id="note_title" {...bindTitle} />
                 </div>
                 <div className="input-field w-100">
                     <label htmlFor="note_content">Note Content</label>
-                    <textarea class="form-control" id="note_content" {...bindContent} rows="5" style={{resize:"none"}} />
+                    <textarea className="form-control" id="note_content" {...bindContent} rows="5" style={{resize:"none"}} />
                 </div>
                 <p></p>
                 <button className="btn btn-success" onClick={e => handleAddEvent(e)}>Add New Note</button>

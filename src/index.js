@@ -16,9 +16,9 @@ import rootReducer from './store/reducers/rootReducer';
 import firebaseConfig from './config/firebaseConfig';
 
 const store = createStore(rootReducer, compose(
-  applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore }))
+  applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+  reduxFirestore(firebaseConfig)
 ),
-reduxFirestore(firebaseConfig)
 );
 const rrfProps = {
   firebase,
