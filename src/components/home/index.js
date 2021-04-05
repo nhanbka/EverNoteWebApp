@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import NoteForm from './NoteForm';
+import { useSelector } from 'react-redux';
+import { useFirestoreConnect } from 'react-redux-firebase';
+import NoteList from '../notes/NoteList'
 
 const Home = () => {
-    const isAuth = () => {
-        return false
-    }
+    useFirestoreConnect([{collection:'notes', orderBy:['createAt', 'desc']}]);
+    const notes = useSelector((state) => state.firestore.ordered.notes);
+    console.log('note:', notes);
         
     return (
         <div>
@@ -26,7 +29,7 @@ const Home = () => {
                 <h5><Link to="/login" className="text-success">Wanna Try To Have Your Own Note? Login Here!</Link></h5>
                 <div className="row center-align">
                     <div className="col s7"><NoteForm /></div>
-                    <div className="col s5">notelist</div>
+                    <div className="col s5"><NoteList notes={notes}/></div>
                 </div>
             </div>
             
