@@ -28,7 +28,7 @@ const Home = () => {
                 <hr/>
                 <h5><Link to="/login" className="text-success">Wanna Try To Have Your Own Note? Login Here!</Link></h5>
                 <div className="row center-align">
-                    <div className="col s7"><NoteForm /></div>
+                    <div className="col s7" style={{paddingRight: '2vw', borderRight: '1px solid grey'}}><NoteForm /></div>
                     <div className="col s5"><NoteList notes={notes}/></div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ const NoteForm = () => {
         resetTitle();
     }
     return (
-        <div className="section" style={{paddingRight: '2vw', borderRight: '1px solid black'}}>
+        <div className="section">
             <form action="">
                 <div className="input-field w-100">
                     <label htmlFor="note_title">Note Title</label>
