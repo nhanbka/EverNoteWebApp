@@ -1,0 +1,8 @@
+.list-element{
+    cursor: pointer; 
+    margin-bottom: 20px;
+}
+
+.list-element:hover{
+    box-shadow: 3px 3px 3px 3px grey;
+}

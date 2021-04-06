@@ -1,7 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { deleteNote } from '../../store/actions/noteAction';
+import { deleteNote, changeFavorite } from '../../store/actions/noteAction';
 import { useDispatch } from 'react-redux';
+import './Note.css';
 
 const Note = ({note}) => {
     const colorButton = note.favorite ? "text-danger" : "text-success" ;
@@ -9,18 +10,20 @@ const Note = ({note}) => {
     const deleteNoteHandler = () => {
         dispatch(deleteNote(note));
     }
+    const toggleFavoriteHandler = () => {
+        dispatch(changeFavorite(note));
+    }
     return (
-        <il className="list-group-item row">
+        <li className="list-group-item row list-element">
             {/* <div className="text-left"><i>{note.createAt}</i></div> */}
-            <div className="text-left">
-                <b>{note.title}</b>
-            </div>
+            <div className="text-left"><b>{note.title}</b></div>
             <div className="text-left text-truncate">{note.content}</div>
             <div className="text-right">
-                <i className="text-success" style={{cursor: 'pointer'}} onClick={deleteNoteHandler}><FontAwesomeIcon icon="trash" /></i>&nbsp;
-                <i className={colorButton} style={{cursor: 'pointer'}}><FontAwesomeIcon icon="heart" /></i>
+                <i className="text-success" style={{cursor: 'pointer'}}><FontAwesomeIcon icon="edit" /></i>&nbsp;&nbsp;
+                <i className="text-success" style={{cursor: 'pointer'}} onClick={deleteNoteHandler}><FontAwesomeIcon icon="trash" /></i>&nbsp;&nbsp;
+                <i className={colorButton} style={{cursor: 'pointer'}} onClick={toggleFavoriteHandler}><FontAwesomeIcon icon="heart" /></i>
             </div>
-        </il>
+        </li>
     )
 }
 
