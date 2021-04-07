@@ -15,6 +15,9 @@ const Note = ({note}) => {
     const toggleFavoriteHandler = () => {
         dispatch(changeFavorite(note));
     }
+    const editNoteHandler = () => {
+        dispatch({type: 'EDIT_NOTE', payload: note})
+    }
     return (
         <li className="list-group-item row list-element">
             {/* <div className="text-left"><i>{note.createAt}</i></div> */}
@@ -23,7 +26,9 @@ const Note = ({note}) => {
             </div>
             <div className="text-left text-truncate">{note.content}</div>
             <div className="text-right">
-                <i className="text-success" style={{cursor: 'pointer'}}><FontAwesomeIcon icon="edit" /></i>&nbsp;&nbsp;
+                <Link to={"/edit/" + note.id}>
+                    <i className="text-success" style={{cursor: 'pointer'}} onClick={editNoteHandler}><FontAwesomeIcon icon="edit" /></i> 
+                </Link>&nbsp;&nbsp;
                 <i className="text-success" style={{cursor: 'pointer'}} onClick={deleteNoteHandler}><FontAwesomeIcon icon="trash" /></i>&nbsp;&nbsp;
                 <i className={colorButton} style={{cursor: 'pointer'}} onClick={toggleFavoriteHandler}><FontAwesomeIcon icon="heart" /></i>
             </div>

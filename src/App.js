@@ -7,6 +7,7 @@ import PageNotFound from './components/err/PageNotFound';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Favorite from './components/favorite';
 import NoteDetail from './components/notes/NoteDetail';
+import EditForm from './components/notes/EditForm';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/note/:id" component={NoteDetail} />
+              <Route path="/edit/:id" component={EditForm} />
               <Route path="/login" component={LoginForm} />
               <Route path="/favorite" component={Favorite} />
               <Route component={PageNotFound} />

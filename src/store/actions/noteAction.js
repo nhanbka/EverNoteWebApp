@@ -45,3 +45,20 @@ export const changeFavorite = (note) => {
         })
     }
 }
+
+export const updateNote = (updateInfo) => {
+    return (dispatch, getState, {getFirestore}) => {
+        const id = updateInfo.id;
+        const firestore = getFirestore()
+        firestore.collection('notes').doc(id).update({
+            title: updateInfo.title,
+            content: updateInfo.content
+        })
+        .then(() => {
+            console.log('update note succesfully!')
+        })
+        .catch(err => {
+            console.log('update note failed due to err: ', err)
+        })
+    }
+}
